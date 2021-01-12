@@ -132,7 +132,7 @@ cc.Class({
         */
        if(this.phase==1){
             
-           if(Math.abs(this.zhangai.x-this.change5.x)<=10){
+           if(Math.abs(this.zhangai.x-this.change5.x)<=100&&Math.abs(this.zhangai.y-this.change5.y)<=50){
                this.phase = 4;
                
                this.output.string += "<color=#ff8888>GG 撞到障碍物翻车啦！</c>\n点击屏幕再次尝试"

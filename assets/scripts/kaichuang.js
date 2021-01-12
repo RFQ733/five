@@ -9,22 +9,10 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        output: {
-            default: null,
-            type: cc.RichText
-        },
-        change:{
-            default: null,
-            type: cc.Node
-        },
         back:{
             default: null,
-            type: cc.node
-        },
-        return:{
-            default: null,
             type: cc.Node
-        },
+        }
         // foo: {
         //     // ATTRIBUTES:
         //     default: null,        // The default value will be used only when the component attaching
@@ -44,25 +32,17 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
+     onLoad () {
         cc.debug.setDisplayStats(false);
-        this.output.string ="<color=#88ffff>请选择任务\n";
-        this.node.on(cc.Node.EventType.TOUCH_START , this.onTouchStart , this);
-            
+
+        this.node.on(cc.Node.EventType.TOUCH_START , this.sta , this);
+     },
+     sta(event){
+        cc.director.loadScene("Airport");
+     },
+    start () {
+
     },
 
-    onTouchStart(event){
-        // var type = event.currentTarget;
-       
-       var rpos = event.getLocation();
-       if(Math.abs(this.return.y-rpos.y)<200) 
-       {
-           cc.director.loadScene("moon");
-        }
-        else{
-            this.output.string +="其他暂时不支持哦QWQ<color=#88ffff>请选择航空任务";
-        }
-    },
-    start () {     
-    },
+    // update (dt) {},
 });
